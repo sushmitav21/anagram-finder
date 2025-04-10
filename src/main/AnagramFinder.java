@@ -8,23 +8,22 @@ public class AnagramFinder {
     public static void main(String[] args) {
         String filename = "src/main/resources/ordbok-utf8.txt";
 
+        // Read .txt file from resources folder
         List<String> words = readWordsFromFile(filename);
         if (words == null || words.isEmpty()) {
             System.err.println("File is empty, check again!");
             return;
         }
 
+        //creating map for grouping anagrams
         Map<String, List<String>> anagramGroupsMap = new HashMap<>();
-
         for (String word : words) {
-            String sorted = sortChars(word.toLowerCase());
+            String sorted = sortChars(word.toLowerCase()); //case-sensitivity
             if (!anagramGroupsMap.containsKey(sorted)) {
                 anagramGroupsMap.put(sorted, new ArrayList<>());
             }
             anagramGroupsMap.get(sorted).add(word);
         }
-
-
         System.out.println("Words with at least one anagram :");
         boolean foundAnagram = false;
 
@@ -53,6 +52,7 @@ public class AnagramFinder {
         }
     }
 
+    //sort characters
     private static String sortChars(String input) {
         char[] chars = input.toCharArray();
         Arrays.sort(chars);
