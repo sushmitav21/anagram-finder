@@ -1,0 +1,22 @@
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Java specific files
+*.class
+*.jar
+*.war
+*.ear
+
+# Build directories
+/target/
+/out/
+
+.DS_Store
+Thumbs.db
+
+
+
+# Log files
+*.log
